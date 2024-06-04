@@ -19,4 +19,9 @@ describe('Ocultar Palabra', () => {
     test('Ocultar palabra con letras mayúsculas', () => {
         expect(ocultarPalabra('PALABRA')).toBe('_______');
     });
+
+    test('Mostrar la palabra seleccionada como una serie de guiones bajos', () => {
+        expect(ocultarPalabra('palabramaslarga')).toBe('_______________');
+    });
+    
 });
