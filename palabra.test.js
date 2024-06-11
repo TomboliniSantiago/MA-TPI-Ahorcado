@@ -82,3 +82,9 @@ describe('Registro de intentos', () => {
         expect(registrarIntentos('a', intentos, 7)).toEqual({ letras: ['a'], fallos: 0, palabra: 'palabra' });
     });
 });
+
+describe('Calculo de puntaje', () => {
+    test('Debe calcular el puntaje correctamente teniendo en cuenta errores e intentos', () => {
+        expect(calcularPuntaje(5, 2)).toBe(40);
+    });
+});
