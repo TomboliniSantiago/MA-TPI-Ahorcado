@@ -1,4 +1,4 @@
-function Palabra(palabra) {
+function validarPalabra(palabra) {
     // Verifica que la palabra no tenga espacios
     if (/\s/.test(palabra)) {
         return false;
@@ -7,4 +7,4 @@ function Palabra(palabra) {
     return true;
 }
 
-module.exports = Palabra;
+module.exports = validarPalabra;

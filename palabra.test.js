@@ -1,13 +1,14 @@
-const palabra = require('./Palabra');
+const validarPalabra = require('./validarPalabra.js');
 const ocultarPalabra = require('./ocultarPalabra.js');
+const verificarLetra = require('./verificarLetra.js');
 
 describe('Validar Palabra', () => {
     test('La palabra no debe contener espacios', () => {
-        expect(palabra('palabra con espacios')).toBe(false);
+        expect(validarPalabra('palabra con espacios')).toBe(false);
     });
 
     test('La palabra no debe contener espacios', () => {
-        expect(palabra('palabra_sin_espacios')).toBe(true);
+        expect(validarPalabra('palabra_sin_espacios')).toBe(true);
     });
 });
 
@@ -22,6 +23,13 @@ describe('Ocultar Palabra', () => {
 
     test('Mostrar la palabra seleccionada como una serie de guiones bajos', () => {
         expect(ocultarPalabra('palabramaslarga')).toBe('_______________');
+    });
+    
+});
+
+describe('Validar Letra Ingresada', () => {
+    test('Debe aceptar una letra del alfabeto', () => {
+        expect(verificarLetra('a')).toBe(true);
     });
     
 });
