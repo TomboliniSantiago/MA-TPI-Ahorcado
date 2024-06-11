@@ -48,5 +48,11 @@ describe('Actualizar estado de juego', () => {
         expect(actualizarEstado('a','palabra', '_______')).toBe('_a_a__a')
     })
 
-    
+    test('No debe revelar letras incorrectas', () => {
+        expect(actualizarEstado('x', 'palabra', '_______')).toBe('_______');
+    });
+
+    test('Debe ser case-insensitive', () => {
+        expect(actualizarEstado('A', 'palabra', '_______')).toBe('_a_a__a');
+    });
 });
