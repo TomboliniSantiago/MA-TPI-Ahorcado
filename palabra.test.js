@@ -37,6 +37,9 @@ describe('Validar Letra Ingresada', () => {
         expect(verificarLetra('1').toBe(false));
     });
 
+    test('No debe aceptar símbolos', () =>{
+        expect(verificarLetra('@').toBe(false));
+    });
 
     
 });
