@@ -44,6 +44,6 @@ describe('Validar Letra Ingresada', () => {
 
 describe('Actualizar estado de juego', () => {
     test('Debe revelar la letra correcta en la palabra', () => {
-        expect(actualizarEstado('a','palabra', '_______')).toBe('')
+        expect(actualizarEstado('a','palabra', '_______')).toBe('_a_a__a')
     })
 });
