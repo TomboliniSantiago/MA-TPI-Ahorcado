@@ -30,6 +30,13 @@ describe('Ocultar Palabra', () => {
 describe('Validar Letra Ingresada', () => {
     test('Debe aceptar una letra del alfabeto', () => {
         expect(verificarLetra('a')).toBe(true);
+        expect(verificarLetra('z')).toBe(true);
     });
+
+    test('No debe aceptar números', () =>{
+        expect(verificarLetra('1').toBe(false));
+    });
+
+
     
 });
