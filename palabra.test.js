@@ -4,6 +4,7 @@ const verificarLetra = require('./verificarLetra.js');
 const actualizarEstado = require('./actualizarEstado.js');
 const registrarIntentos = require('./registrarIntentos.js');
 const calcularPuntaje = require('./calcularPuntaje.js');
+const actualizarPuntaje = require('./actualizarPuntaje.js');
 
 
 describe('Validar Palabra', () => {
@@ -98,5 +99,6 @@ describe('Calculo de puntaje', () => {
 describe('Actualizar Puntaje', () => {
     test('Debe actualizar el puntaje correctamente', () => {
         expect(actualizarPuntaje(50, 10)).toBe(60);
+        expect(actualizarPuntaje(50, -10)).toBe(40);
     });
 });
