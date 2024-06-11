@@ -68,4 +68,12 @@ describe('Registro de intentos', () => {
         let intentos = { letras: [], fallos: 0, palabra: 'palabra' };
         expect(registrarIntentos('x', intentos, 7)).toEqual({ letras: ['x'], fallos: 1, palabra: 'palabra' });
     });
+
+    test('Debe registrar múltiples letras y mantener el estado', () => {
+        let intentos = { letras: [], fallos: 0, palabra: 'palabra' };
+        registrarIntentos('a', intentos, 7);
+        registrarIntentos('b', intentos, 7);
+        registrarIntentos('x', intentos, 7);
+        expect(intentos).toEqual({ letras: ['a', 'b', 'x'], fallos: 1, palabra: 'palabra' });
+    });
 });
