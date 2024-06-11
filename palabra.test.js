@@ -56,3 +56,10 @@ describe('Actualizar estado de juego', () => {
         expect(actualizarEstado('A', 'palabra', '_______')).toBe('_a_a__a');
     });
 });
+
+describe('Registro de intentos', () => {
+    test('Debe registrar una nueva letra ingresada', () => {
+        let intentos = { letras: [], fallos: 0, palabra: 'palabra' };
+        expect(registrarIntentos('a', intentos, 7)).toEqual({ letras: ['a'], fallos: 0, palabra: 'palabra' });
+    });
+});
