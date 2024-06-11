@@ -4,6 +4,7 @@ const verificarLetra = require('./verificarLetra.js');
 const actualizarEstado = require('./actualizarEstado.js');
 const registrarIntentos = require('./registrarIntentos.js');
 const calcularPuntaje = require('./calcularPuntaje.js');
+const actualizarPuntaje = require('./actualizarPuntaje.js');
 
 
 describe('Validar Palabra', () => {
