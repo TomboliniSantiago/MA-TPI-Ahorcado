@@ -1,6 +1,7 @@
 const validarPalabra = require('./validarPalabra.js');
 const ocultarPalabra = require('./ocultarPalabra.js');
 const verificarLetra = require('./verificarLetra.js');
+const actualizarEstado = require('./actualizarEstado.js')
 
 describe('Validar Palabra', () => {
     test('La palabra no debe contener espacios', () => {
@@ -46,4 +47,6 @@ describe('Actualizar estado de juego', () => {
     test('Debe revelar la letra correcta en la palabra', () => {
         expect(actualizarEstado('a','palabra', '_______')).toBe('_a_a__a')
     })
+
+    
 });
