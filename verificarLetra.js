@@ -1,6 +1,6 @@
 function verificarLetra(letra) {
-    const regex = /^[a-zA-Z]$/;
-    return regex.test(letra);
+    const letraRegex = /^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ]$/;
+    return letraRegex.test(letra);
 }
 
 module.exports = verificarLetra;

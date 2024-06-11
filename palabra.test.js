@@ -1,7 +1,8 @@
 const validarPalabra = require('./validarPalabra.js');
 const ocultarPalabra = require('./ocultarPalabra.js');
 const verificarLetra = require('./verificarLetra.js');
-const actualizarEstado = require('./actualizarEstado.js')
+const actualizarEstado = require('./actualizarEstado.js');
+const registrarIntentos = require('./registrarIntentos.js');
 
 describe('Validar Palabra', () => {
     test('La palabra no debe contener espacios', () => {
@@ -35,11 +36,11 @@ describe('Validar Letra Ingresada', () => {
     });
 
     test('No debe aceptar números', () =>{
-        expect(verificarLetra('1').toBe(false));
+        expect(verificarLetra('1')).toBe(false);
     });
 
     test('No debe aceptar símbolos', () =>{
-        expect(verificarLetra('@').toBe(false));
+        expect(verificarLetra('@')).toBe(false);
     });
 });
 
@@ -61,5 +62,10 @@ describe('Registro de intentos', () => {
     test('Debe registrar una nueva letra ingresada', () => {
         let intentos = { letras: [], fallos: 0, palabra: 'palabra' };
         expect(registrarIntentos('a', intentos, 7)).toEqual({ letras: ['a'], fallos: 0, palabra: 'palabra' });
+    });
+
+    test('Debe incrementar el número de fallos para letras incorrectas', () => {
+        let intentos = { letras: [], fallos: 0, palabra: 'palabra' };
+        expect(registrarIntentos('x', intentos, 7)).toEqual({ letras: ['x'], fallos: 1, palabra: 'palabra' });
     });
 });
