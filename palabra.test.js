@@ -94,3 +94,9 @@ describe('Calculo de puntaje', () => {
         expect(calcularPuntaje(10, 5)).toBe(75);
     });
 });
+
+describe('Actualizar Puntaje', () => {
+    test('Debe actualizar el puntaje correctamente', () => {
+        expect(actualizarPuntaje(50, 10)).toBe(60);
+    });
+});
