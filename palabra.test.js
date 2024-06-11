@@ -76,4 +76,9 @@ describe('Registro de intentos', () => {
         registrarIntentos('x', intentos, 7);
         expect(intentos).toEqual({ letras: ['a', 'b', 'x'], fallos: 1, palabra: 'palabra' });
     });
+
+    test('No debe registrar una letra ya ingresada nuevamente', () => {
+        let intentos = { letras: ['a'], fallos: 0, palabra: 'palabra' };
+        expect(registrarIntentos('a', intentos, 7)).toEqual({ letras: ['a'], fallos: 0, palabra: 'palabra' });
+    });
 });
