@@ -3,6 +3,8 @@ const ocultarPalabra = require('./ocultarPalabra.js');
 const verificarLetra = require('./verificarLetra.js');
 const actualizarEstado = require('./actualizarEstado.js');
 const registrarIntentos = require('./registrarIntentos.js');
+const calcularPuntaje = require('./calcularPuntaje.js');
+
 
 describe('Validar Palabra', () => {
     test('La palabra no debe contener espacios', () => {
@@ -86,5 +88,9 @@ describe('Registro de intentos', () => {
 describe('Calculo de puntaje', () => {
     test('Debe calcular el puntaje correctamente teniendo en cuenta errores e intentos', () => {
         expect(calcularPuntaje(5, 2)).toBe(40);
+        expect(calcularPuntaje(5, 2)).toBe(40);
+        expect(calcularPuntaje(0, 0)).toBe(0);
+        expect(calcularPuntaje(10, 0)).toBe(100);
+        expect(calcularPuntaje(10, 5)).toBe(75);
     });
 });
