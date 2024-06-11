@@ -37,6 +37,13 @@ describe('Validar Letra Ingresada', () => {
         expect(verificarLetra('1').toBe(false));
     });
 
+    test('No debe aceptar símbolos', () =>{
+        expect(verificarLetra('@').toBe(false));
+    });
+});
 
-    
+describe('Actualizar estado de juego', () => {
+    test('Debe revelar la letra correcta en la palabra', () => {
+        expect(actualizarEstado('a','palabra', '_______')).toBe('_a_a__a')
+    })
 });
