@@ -1,9 +1,9 @@
 const readline = require('readline');
-const validarPalabra = require('./validarPalabra');
 const ocultarPalabra = require('./ocultarPalabra');
 const verificarLetra = require('./verificarLetra');
 const actualizarEstado = require('./actualizarEstado');
 const registrarIntentos = require('./registrarIntentos');
+const actualizarPuntaje = require('./actualizarPuntaje');
 
 const rl = readline.createInterface({
     input: process.stdin,
@@ -14,12 +14,14 @@ let palabra = 'agiles'; // Palabra hardcodeada
 let estadoActual = ocultarPalabra(palabra);
 let intentos = { letras: [], fallos: 0, palabra: palabra };
 const maxIntentos = 7;
+let puntajeActual = 0; // Inicializamos el puntaje actual
 
 function mostrarEstado() {
-    console.log('')
+    console.log('---------------------------------------------------');
     console.log(`Palabra: ${estadoActual}`);
     console.log(`Intentos fallidos: ${intentos.fallos}`);
     console.log(`Letras ingresadas: ${intentos.letras.join(', ')}`);
+    console.log(`Puntaje actual: ${puntajeActual}`);
 }
 
 function solicitarLetra() {
@@ -27,12 +29,21 @@ function solicitarLetra() {
         if (verificarLetra(letra)) {
             estadoActual = actualizarEstado(letra, palabra, estadoActual);
             intentos = registrarIntentos(letra, intentos, maxIntentos);
+            puntajeActual = actualizarPuntaje(puntajeActual, intentos); // Actualizamos el puntaje
             if (estadoActual === palabra) {
+                console.log('---------------------------------------------------');
                 console.log(`¡Felicitaciones! Adivinaste la palabra: ${palabra}`);
+                console.log(`Puntaje final: ${puntajeActual}`); // Mostramos el puntaje final
                 rl.close();
             } else {
                 mostrarEstado();
-                solicitarLetra();
+                if (intentos.fallos >= maxIntentos) {
+                    console.log('---------------------------------------------------');
+                    console.log(`¡Has perdido! La palabra era: ${palabra}`);
+                    rl.close();
+                } else {
+                    solicitarLetra();
+                }
             }
         } else {
             console.log('Letra inválida. Inténtelo de nuevo.');

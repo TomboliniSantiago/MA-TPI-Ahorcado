@@ -87,18 +87,20 @@ describe('Registro de intentos', () => {
 });
 
 describe('Calculo de puntaje', () => {
-    test('Debe calcular el puntaje correctamente teniendo en cuenta errores e intentos', () => {
-        expect(calcularPuntaje(5, 2)).toBe(40);
-        expect(calcularPuntaje(5, 2)).toBe(40);
-        expect(calcularPuntaje(0, 0)).toBe(0);
-        expect(calcularPuntaje(10, 0)).toBe(100);
-        expect(calcularPuntaje(10, 5)).toBe(75);
+    test('Calcular puntaje con 0 fallos', () => {
+        const intentos = { fallos: 0, palabra: 'agiles' };
+        expect(calcularPuntaje(intentos)).toBe(6000);
+    });
+    
+    test('Calcular puntaje con 3 fallos', () => {
+        const intentos = { fallos: 3, palabra: 'agiles' };
+        expect(calcularPuntaje(intentos)).toBe(2925);
     });
 });
 
 describe('Actualizar Puntaje', () => {
     test('Debe actualizar el puntaje correctamente', () => {
-        expect(actualizarPuntaje(50, 10)).toBe(60);
-        expect(actualizarPuntaje(50, -10)).toBe(40);
+        const intentos = { fallos: 1, palabra: 'agiles' };
+        expect(actualizarPuntaje(0, intentos)).toBe(4975);
     });
 });
